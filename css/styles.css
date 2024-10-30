@@ -33,15 +33,17 @@ color: #000;
     background-color: #333;
     color: white;
 }
+.customActiveLiElClass{
+    background-color: #333;
+}
+.customActiveAElClass{
+    color: white !important;
+}
 .customAElClass{
     text-decoration: none;
     color: black;
 }
 
-/* .ActiveLiElementClass{
-    background-color: #333;
-    color: white;
-} */
 /* Typeography General*/
 h1 {
     font-family: 'Fira Sans', sans-serif;

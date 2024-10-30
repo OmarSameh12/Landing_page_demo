@@ -13,7 +13,6 @@
  * 
 */
 //array that carries the divs inside section elements 
-var divElementsArr=[];
 //this function is used to populate the ul created in html
 function InitializeNavbar(){
     divElementsArr=document.querySelectorAll('.landing__container');
@@ -22,9 +21,9 @@ function InitializeNavbar(){
         let liEl=document.createElement('li');
         let aEl=document.createElement('a');
         aEl.textContent = `Section${i+1}`;
-        //aEl.href=`#section${i+1}`;
         aEl.classList.add("customAElClass");
         aEl.id=`link${i+1}`;
+        liEl.id=`linkLi${i+1}`;
         liEl.appendChild(aEl);
         liEl.classList.add("customLiElClass");
         navbarFragment.append(liEl);
@@ -45,14 +44,22 @@ function makeActive(){
         const box = section.getBoundingClientRect();
         if(box.y >= -150 && box.y <= 150){
             section.classList.add("ActiveLiElementClass");
+            let linkEl=document.querySelector(`#link${section.textContent.split(' ',10)[9]}`);
+            let liEl=document.querySelector(`#linkLi${section.textContent.split(' ',10)[9]}`);
+            linkEl.classList.add('customActiveAElClass');
+            liEl.classList.add('customActiveLiElClass');
         }else{
             section.classList.remove('ActiveLiElementClass');
+            let linkEl=document.querySelector(`#link${section.textContent.split(' ',10)[9]}`);
+            let liEl=document.querySelector(`#linkLi${section.textContent.split(' ',10)[9]}`);
+            linkEl.classList.remove('customActiveAElClass');
+            liEl.classList.remove('customActiveLiElClass');
         }
      }
 }
 //function that scroll through the page until it reaches the section that the user clicked it's navigation li element in the nav bar
 function addScrollOnClickEventListener(){
-    for(var i=0;i<divElementsArr.length;i++){
+    for(let i=0;i<divElementsArr.length;i++){
         let linkEl=document.querySelector(`#link${i+1}`);
         linkEl.addEventListener('click',(event)=>{
             event.preventDefault();
