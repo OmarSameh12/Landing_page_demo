@@ -11,7 +11,7 @@ Open the index.html file in a web browser.
 Use the navigation bar to scroll smoothly between sections.
 This project is ideal for practicing web layout design, responsive styling, and JavaScript-based DOM manipulation.
 
-##Dependencies
+## Dependencies
 This project is built using only HTML, CSS, and JavaScript, so it requires no additional libraries or frameworks.
 
 ### HTML: For the structure of the page.
