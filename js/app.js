@@ -12,7 +12,9 @@
  * JS Standard: ESlint
  * 
 */
+//array that carries the divs inside section elements 
 var divElementsArr=[];
+//this function is used to populate the ul created in html
 function InitializeNavbar(){
     divElementsArr=document.querySelectorAll('.landing__container');
     const navbarFragment = document.createDocumentFragment();
@@ -25,19 +27,19 @@ function InitializeNavbar(){
         aEl.id=`link${i+1}`;
         liEl.appendChild(aEl);
         liEl.classList.add("customLiElClass");
-        navbarFragment.appendChild(liEl);
+        navbarFragment.append(liEl);
     }
     const ulEl=document.getElementById('navbar__list');
     ulEl.appendChild(navbarFragment);
 
 }
-
+//function to call the function makeActive when the user scrolls across our webpage
 function addScrollEventListener(){
     document.addEventListener('scroll',(e)=>{
-        //console.log(e)
         makeActive();
     })
 }
+//function adds a class to the class list of the section in view port
 function makeActive(){
     for (const section of divElementsArr) {
         const box = section.getBoundingClientRect();
@@ -46,18 +48,14 @@ function makeActive(){
         }else{
             section.classList.remove('ActiveLiElementClass');
         }
-
-        // if (box.top <= 150 && box.bottom >= 150) {
-        //     console.log("in if value is = ",box);
-        // }
-        //   else {
-        //  }
      }
 }
+//function that scroll through the page until it reaches the section that the user clicked it's navigation li element in the nav bar
 function addScrollOnClickEventListener(){
     for(var i=0;i<divElementsArr.length;i++){
         let linkEl=document.querySelector(`#link${i+1}`);
         linkEl.addEventListener('click',(event)=>{
+            event.preventDefault();
             const nameOfSection = event.target.textContent;
             const offsetOfSectionClicked = document.getElementById(nameOfSection.toLowerCase()).offsetTop;
             window.scrollTo({
@@ -69,6 +67,8 @@ function addScrollOnClickEventListener(){
     }
 }
 
+
+//function to call all the functions of initialization without blocking the access and options of webpage
 setTimeout(()=>{
     InitializeNavbar();
     addScrollEventListener();
