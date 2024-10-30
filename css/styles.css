@@ -18,7 +18,27 @@ body {
     color: #fff;
 }
 
+#navbar__list{
+background-color:whitesmoke;
+color: #000;
+}
+.customLiElClass{
+    padding: 10px;
+}
+.customLiElClass:hover{
+    background-color: #333;
+    color: white;
+}
+.customAElClass{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
 
+}
+/* .ActiveLiElementClass{
+    background-color: #333;
+    color: white;
+} */
 /* Typeography General*/
 h1 {
     font-family: 'Fira Sans', sans-serif;
